@@ -1,3 +1,4 @@
+from __future__ import annotations
 import argparse
 import os
 import json
@@ -66,7 +67,7 @@ def scan_file(filepath:str,local_db:dict,vt_api_key:str | None)->dict:
                 })
     
     if size<=max_scan:
-        result+=heuristics.run_all_heuristics(filepath,data)
+        result["findings"]+=heuristics.run_all_heuristics(filepath,data)
     
     score=sum(severity_weight.get(f["severity"],0)for f in result["findings"])
     result["score"]=score

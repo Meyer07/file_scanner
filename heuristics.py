@@ -1,8 +1,10 @@
+from __future__ import annotations
 import math 
 import os 
 import re
 import zipfile
 from collections import Counter
+
 
 def shannon_entropy(data:bytes)->float:
     if not data:
